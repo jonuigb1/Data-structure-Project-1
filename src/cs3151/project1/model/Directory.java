@@ -1,4 +1,4 @@
-package model;
+package cs3151.project1.model;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
+
+import javafx.event.ActionEvent;
 
 public class Directory {
 
@@ -63,7 +65,7 @@ public class Directory {
 	    }
 	    public static void mains(String[] args) {
 	    	
-	        Directory ff = new Directory();
+         Directory ff = new Directory();
 	        Scanner scan = new Scanner(System.in);
 	        System.out.println("Enter the file to be searched.. " );
 	        String name = scan.next();
@@ -71,6 +73,12 @@ public class Directory {
 	        String directory = scan.next();
 	        ff.search(name,new File(directory));
 	    }
+	
 
+
+	
+
+
+	    
 	
 }

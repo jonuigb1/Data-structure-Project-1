@@ -1,13 +1,14 @@
-package view_model;
+package cs3151.project1.view_model;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class MainWindow {
 
@@ -16,6 +17,9 @@ public class MainWindow {
 
     @FXML
     private URL location;
+
+    @FXML
+    private AnchorPane Anchor;
 
     @FXML
     private Button RootDirectory;
@@ -39,15 +43,16 @@ public class MainWindow {
     private RadioButton FullPath;
 
     @FXML
-    private ListView<?> outputTextArea;
+    private TextArea outputTextArea;
 
     @FXML
     void DisplayRootDirectory(ActionEvent event) {
     	File[] rootDirectory = File.listRoots();
     	for( int i = 0; i < rootDirectory.length; i++) {
-    		System.out.println(rootDirectory[i].toString());
+    		String result = rootDirectory.toString();
+    		this.outputTextArea.setText(result);
     	}
-    	 
+    	
 
     }
 
@@ -78,6 +83,7 @@ public class MainWindow {
 
     @FXML
     void initialize() {
+        assert Anchor != null : "fx:id=\"Anchor\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert RootDirectory != null : "fx:id=\"RootDirectory\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert searchText != null : "fx:id=\"searchText\" was not injected: check your FXML file 'MainWindow.fxml'.";
         assert SelectAllFIlesAndDirectories != null : "fx:id=\"SelectAllFIlesAndDirectories\" was not injected: check your FXML file 'MainWindow.fxml'.";
