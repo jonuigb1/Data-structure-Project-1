@@ -4,10 +4,10 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="816.0" prefWidth="1140.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<fx:root prefHeight="816.0" prefWidth="1140.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindow">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" />
       <AnchorPane layoutY="9.0" prefHeight="191.0" prefWidth="338.0">
@@ -15,12 +15,15 @@
             <Button layoutX="89.0" layoutY="65.0" mnemonicParsing="false" text="Root  Directory" />
          </children>
       </AnchorPane>
-      <TextField layoutX="271.0" layoutY="74.0" />
-      <RadioButton layoutX="509.0" layoutY="79.0" mnemonicParsing="false" text="All" />
-      <RadioButton layoutX="639.0" layoutY="79.0" mnemonicParsing="false" text="Directories Only" />
-      <RadioButton layoutX="863.0" layoutY="79.0" mnemonicParsing="false" text="Files Only" />
-      <RadioButton layoutX="380.0" layoutY="156.0" mnemonicParsing="false" text="Name Only" />
-      <RadioButton layoutX="561.0" layoutY="156.0" mnemonicParsing="false" text="Full Path" />
+      <TextField fx:id="searchText" layoutX="271.0" layoutY="74.0" />
+      <RadioButton fx:id="SelectAllFIlesAndDirectories" layoutX="509.0" layoutY="79.0" mnemonicParsing="false" onAction="#getFilesAndDirectories" text="All" />
+      <RadioButton fx:id="SelectDirectories" layoutX="639.0" layoutY="79.0" mnemonicParsing="false" onAction="#getDirectories" text="Directories Only" />
+      <RadioButton fx:id="SelectFiles" layoutX="863.0" layoutY="79.0" mnemonicParsing="false" onAction="#getFiles" text="Files Only" />
+      <RadioButton fx:id="NameOnly" layoutX="380.0" layoutY="156.0" mnemonicParsing="false" onAction="#getName" text="Name Only" />
+      <RadioButton fx:id="FullPath" layoutX="561.0" layoutY="156.0" mnemonicParsing="false" onAction="#getFullPath" text="Full Path" />
       <ListView layoutX="12.0" layoutY="216.0" prefHeight="583.0" prefWidth="1117.0" />
    </children>
-</AnchorPane>
+   <effect>
+      <Blend />
+   </effect>
+</fx:root>
